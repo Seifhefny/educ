@@ -237,6 +237,14 @@ body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
 .tl-card h4{font-size:1.25rem;margin-bottom:6px}
 .tl-card p{color:var(--muted);font-size:.96rem}
 .tl-items{position:relative}
+.tl-card ul{list-style:none;display:grid;gap:8px;margin-top:4px}
+.tl-card li{color:var(--muted);font-size:.95rem;position:relative;padding-left:16px}
+.tl-card li::before{content:"";position:absolute;left:0;top:.65em;width:6px;height:6px;border-radius:50%;background:var(--dot,var(--t))}
+.tl-item:nth-child(odd) .tl-card li{padding-left:0;padding-right:16px}
+.tl-item:nth-child(odd) .tl-card li::before{left:auto;right:0}
+.tl-item.ctx .tl-card{border-color:rgba(255,190,92,.55);background:linear-gradient(135deg,rgba(255,190,92,.16),rgba(255,255,255,.03))}
+.tl-ctx{display:inline-block;margin:0 0 8px 8px;font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--a)}
+.tl-date{font-family:'Syne';font-size:.85rem}
 
 /* ---------- gallery ---------- */
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px}
@@ -391,7 +399,9 @@ footer{padding:80px 0 50px;border-top:1px solid var(--stroke);margin-top:40px}
   .tl-line,.tl-head{left:18px}
   .tl-item,.tl-item:nth-child(even),.tl-item:nth-child(odd){width:100%;margin-left:0;padding:0 0 32px 52px;text-align:left}
   .tl-item:nth-child(odd)::before,.tl-item:nth-child(even)::before{left:11px;right:auto}
-  .reveal.from-left,.reveal.from-right{transform:translateX(40px)}
+  .tl-item:nth-child(odd) .tl-card li{padding:0 0 0 16px}
+  .tl-item:nth-child(odd) .tl-card li::before{left:0;right:auto}
+  .reveal.from-left:not(.in),.reveal.from-right:not(.in){transform:translateX(40px)}
   .m-hero-card{grid-template-columns:1fr;text-align:center;justify-items:center;padding:34px 24px}
   .m-hero .avatar{width:150px;height:150px;font-size:3rem}
   .m-hero .m-quote{text-align:left}
@@ -583,16 +593,42 @@ const SITE = {
     }
   ],
 
-  /* Group timeline — replace with your real dates and milestones */
+  /* Group timeline — "items" makes a bulleted card; kind: "context" marks the critical side */
+  timelineInfo: {
+    eyebrow: "Group work · Timeline",
+    title: "Saudi women, 2016–2025",
+    sub: "The major breakthroughs for Saudi women in a decade of reform, and the context behind them. Scroll to follow it."
+  },
   timeline: [
-    { date: "Week 1", title: "The course begins", text: "Our first questions about culture, schooling and who education is for." },
-    { date: "Week 3", title: "Forming the group", text: "Four of us discover a shared interest in [your shared interest]." },
-    { date: "Week 5", title: "Field observations", text: "Each of us observes a real classroom and brings back what we saw." },
-    { date: "Week 6", title: "Trauma-informed activity", text: "We design an activity built around safety, trust and choice." },
-    { date: "Week 7", title: "Timeline project", text: "Mapping [topic of your timeline] across history." },
-    { date: "Week 8", title: "Recording our podcast", text: "Turning our discussions into episodes." },
-    { date: "Oct 22, 2026", title: "Website presentation", text: "We present the first version of this site to the class." },
-    { date: "Dec 3, 2026", title: "Final portfolio", text: "All of the semester's work, uploaded and reflected on." }
+    { date: "2016", title: "Vision 2030 launches", items: [
+      "April: Vision 2030 sets a goal of raising women's participation in the workforce from 22% to 30% by 2030.",
+      "April: The religious police lose their power to arrest people." ] },
+    { date: "2017", title: "First firsts", items: [
+      "February: Sarah Al-Suhaimi becomes the first woman to chair the Saudi stock exchange (Tadawul).",
+      "May: A royal decree lets women use many government services without a male guardian's consent.",
+      "September: A royal decree announces that women will be allowed to drive.",
+      "October: Princess Reema bint Bandar becomes the first woman to head a Saudi sports federation." ] },
+    { date: "2018", title: "The driving ban ends", items: [
+      "January: Women are allowed into football stadiums for the first time.",
+      "May: An anti-harassment law is passed, with prison terms and fines.",
+      "June 24: The driving ban officially ends." ] },
+    { date: "2018", kind: "context", title: "The activists were jailed", text: "Many of the women who campaigned for these rights were arrested in 2018, just before the driving ban ended. Loujain al-Hathloul, for example, was imprisoned until 2021 and then banned from travel." },
+    { date: "2019", title: "Guardianship reforms", items: [
+      "February: Princess Reema becomes the first female Saudi ambassador (to the United States).",
+      "August: Women over 21 can get a passport and travel abroad without a guardian's permission, register births, marriages and divorces, and be recognized as head of household.",
+      "Employment reforms ban gender discrimination at work and set an equal retirement age of 60 for men and women." ] },
+    { date: "2020", title: "The 30% goal is reached early", text: "By the end of 2020, women's workforce participation reaches 33%, passing the Vision 2030 goal ten years early." },
+    { date: "2021", title: "More independence", items: [
+      "Women can join the armed forces in ranks up to sergeant.",
+      "Women can live independently without a guardian's approval.",
+      "Women can perform Hajj and Umrah without a male guardian (mahram)." ] },
+    { date: "2022", title: "A written family law", items: [
+      "March: The first codified Personal Status Law is introduced, covering marriage, divorce and custody.",
+      "September: Hala Al-Tuwaijri becomes the first woman to head the Human Rights Commission, with the rank of minister." ] },
+    { date: "2022", kind: "context", title: "Guardianship is not fully gone", text: "The 2022 Personal Status Law has been criticized because it still requires a male guardian's approval for a woman to marry, and it includes a wife's “obedience” to her husband." },
+    { date: "2023", title: "A Saudi woman in space", text: "May: Rayyanah Barnawi becomes the first Saudi and Arab woman in space, on the Ax-2 mission to the International Space Station." },
+    { date: "2024", title: "A new target: 40%", text: "October: With women's participation already around 35%, the government raises its 2030 target to 40%." },
+    { date: "2025", title: "Where things stand", text: "By the end of the year, Saudi women's labor force participation reaches 34.5%." }
   ],
 
   /* Work — type is one of: Presentation, Activity, Timeline, Paper, Podcast, Project */
@@ -662,11 +698,13 @@ function timelineHTML(events, color) {
     <div class="tl-line"><div class="tl-fill"></div></div><div class="tl-head"></div>
     <div class="tl-items">
     ${events.map((e, i) => `
-      <div class="tl-item reveal ${i % 2 ? 'from-right' : 'from-left'}" style="--dot:${color || cols[i % 4]}">
+      <div class="tl-item reveal ${i % 2 ? 'from-right' : 'from-left'} ${e.kind === 'context' ? 'ctx' : ''}" style="--dot:${e.kind === 'context' ? 'var(--a)' : (color || cols[i % 4])}">
         <div class="tl-card glass">
           <span class="tl-date">${esc(e.date)}</span>
+          ${e.kind === 'context' ? '<span class="tl-ctx">⚠ The other side</span>' : ''}
           <h4>${esc(e.title)}</h4>
-          <p>${esc(e.text)}</p>
+          ${e.text ? `<p>${esc(e.text)}</p>` : ''}
+          ${e.items ? `<ul>${e.items.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
         </div>
       </div>`).join('')}
     </div></div>`;
@@ -768,7 +806,7 @@ function homeHTML() {
           <div class="stat glass reveal" style="--d:.05s"><b class="count" data-to="${s.members.length}">0</b><span>Members</span></div>
           <div class="stat glass reveal" style="--d:.15s"><b class="count" data-to="${typeCount}">0</b><span>Pieces of work</span></div>
           <div class="stat glass reveal" style="--d:.25s"><b class="count" data-to="${s.podcasts.length}">0</b><span>Podcast episodes</span></div>
-          <div class="stat glass reveal" style="--d:.35s"><b class="count" data-to="${s.timeline.length}">0</b><span>Milestones</span></div>
+          <div class="stat glass reveal" style="--d:.35s"><b class="count" data-to="${new Set(s.timeline.map(e => e.date)).size}">0</b><span>Years on our timeline</span></div>
         </div>
       </div>
     </div>
@@ -834,9 +872,10 @@ function homeHTML() {
   <section class="section" id="timeline">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="eyebrow">Our semester</span>
-        <h2 class="sec-title">The <span class="grad">timeline</span></h2>
-        <p class="sec-sub">Scroll to follow our journey through the course.</p>
+        <span class="eyebrow">${esc(s.timelineInfo.eyebrow)}</span>
+        <h2 class="sec-title">${esc(s.timelineInfo.title)}</h2>
+        <p class="sec-sub">${esc(s.timelineInfo.sub)}</p>
+        <div class="wc-by" style="margin-top:14px">${SITE.members.map(m => avatar(m)).join('')}<span>Whole group</span></div>
       </div>
       ${timelineHTML(s.timeline)}
     </div>
