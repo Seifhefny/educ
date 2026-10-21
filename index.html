@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Learning, Out Loud · Cultural Foundations of Education</title>
-<meta name="description" content="Our group portfolio for Cultural Foundations of Education at The American University in Cairo.">
+<title>Learning, Out Loud · Rethinking Education in Egypt and the Developing World</title>
+<meta name="description" content="Our group portfolio for Rethinking Education in Egypt and the Developing World at The American University in Cairo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -486,13 +486,13 @@ const SITE = {
   groupName: "",                       // optional — leave "" if you have none
   headline: "Learning, out loud.",     // the big animated title on the homepage
   tagline: "Four future educators documenting a semester of questions, field visits, conversations and classrooms.",
-  course: "Cultural Foundations of Education",
+  course: "Rethinking Education in Egypt and the Developing World",
   university: "The American University in Cairo",
   term: "Fall 2026",
   instructor: "Instructor name",
 
   purpose: [
-    "This website is our shared portfolio for <strong>Cultural Foundations of Education</strong>. It collects what we made, what we observed in real classrooms and what we are still figuring out about teaching and learning."
+    "This website is our shared portfolio for <strong>Rethinking Education in Egypt and the Developing World</strong>. It collects what we made, what we observed in real classrooms and what we are still figuring out about teaching and learning."
   ],
 
   interests: [
@@ -601,13 +601,13 @@ const SITE = {
 
   /* Work — type is one of: Presentation, Activity, Timeline, Paper, Podcast, Project */
   work: [
-    { title: "Education in the Age of Technology", type: "Presentation", by: ["group"], course: "Cultural Foundations", date: "",
+    { title: "Education in the Age of Technology", type: "Presentation", by: ["group"], course: "Rethinking Education", date: "",
       desc: "A survey of 36 students on how technology and AI shape learning. 94% say technology helps them understand coursework, yet 67% say their devices distract them and 81% still want in-person classes.",
       reflection: "",
       image: "slides/survey/01.jpg", embed: "", link: "",
       slides: ["slides/survey/01.jpg", "slides/survey/02.jpg", "slides/survey/03.jpg", "slides/survey/04.jpg", "slides/survey/05.jpg", "slides/survey/06.jpg", "slides/survey/07.jpg", "slides/survey/08.jpg", "slides/survey/09.jpg", "slides/survey/10.jpg", "slides/survey/11.jpg"],
       notes: ["Introduce the topic: how technology and AI affect students' learning. This presentation summarizes the results of a 5-question survey with 36 respondents.", "36 people answered five multiple-choice questions on understanding, attention, AI use, gamified learning and class format, plus two open-ended questions on how they study with technology and how they handle information overload.", "Almost everyone (94%) agrees that technology helps them understand coursework: 22 strongly agree and 12 agree. Only one person was neutral and one strongly disagreed.", "24 of 36 respondents (67%) say technology affects their attention frequently or very frequently. Only 4 said rarely or never. So the same tools that help understanding also distract.", "32 of 36 respondents use AI weekly or more, and 17 (47%) use it every day. Only one person never uses AI for coursework.", "24 of 36 (67%) agree that gamified apps make them more engaged; 8 are neutral and only 4 disagree. Gamification is popular but less of a consensus than the other findings.", "19 of 36 (53%) prefer on-ground classes, 10 prefer hybrid, and only 6 prefer fully online. Even with heavy tech and AI use, 81% still want some in-person learning.", "Common themes in the open-ended answers: respondents use AI to explain hard topics simply, summarize, quiz themselves and get instant feedback. Most describe it as an assistant rather than a replacement, and several mention verifying AI output and the risk of becoming too dependent on it.", "Most respondents say the volume of information online, amplified by instant AI answers, can feel overwhelming and makes them feel behind, partly through comparing themselves to others online. Their coping strategies are similar: filter to a few reliable sources, focus on what is relevant to their goals, and accept that no one can know everything. One respondent put it as measuring themselves by understanding and applying what they learn, not by how much they consume.", "Technology clearly helps learning, and AI is now part of everyday studying, but devices are also a major distraction and most people still value in-person classes. The takeaway: use technology to support classroom learning, not replace it, and manage distractions.", "Thank the audience and open the floor for questions."] },
-    { title: "Where the Rivers Meet", type: "Activity", by: ["group"], course: "Cultural Foundations", date: "Week 4",
+    { title: "Where the Rivers Meet", type: "Activity", by: ["group"], course: "Rethinking Education", date: "Week 4",
       desc: "A trauma-informed classroom activity for Sudanese refugee students in Egypt and their Egyptian classmates, built on SAMHSA's six principles: safety first, then learning.",
       reflection: "",
       image: "slides/rivers/01.jpg", embed: "", link: "",
@@ -622,7 +622,7 @@ const SITE = {
       reflection: "", image: "papers/omar-mamdouh-reflection/1.jpg", embed: "", link: "papers/omar-mamdouh-reflection.pdf",
       slides: ["papers/omar-mamdouh-reflection/1.jpg", "papers/omar-mamdouh-reflection/2.jpg", "papers/omar-mamdouh-reflection/3.jpg"], notes: [] }
     /* Individual work goes here, e.g.
-    ,{ title: "Field Observation", type: "Presentation", by: ["m2"], course: "Cultural Foundations", date: "Oct 2026",
+    ,{ title: "Field Observation", type: "Presentation", by: ["m2"], course: "Rethinking Education", date: "Oct 2026",
       desc: "...", reflection: "...", image: "", embed: "", link: "", slides: [], notes: [] } */
   ],
 
@@ -1391,7 +1391,7 @@ addEventListener('resize', onScroll);
 })();
 
 /* ---------- boot ---------- */
-$('#logo-text').textContent = SITE.groupName || 'Cultural Foundations · AUC';
+$('#logo-text').textContent = SITE.groupName || 'Rethinking Education · AUC';
 $('#foot-title').textContent = siteName();
 $('#foot-sub').textContent = `${SITE.course} · ${SITE.university} · ${SITE.term}`;
 $('#dd-menu').innerHTML = SITE.members.map(m => `<a href="#/member/${m.id}" data-route>${avatar(m, 'mini')}${esc(m.name)}</a>`).join('');
