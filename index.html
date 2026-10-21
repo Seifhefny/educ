@@ -360,6 +360,10 @@ body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
 .sv-btn.prev:hover{transform:translateY(-50%) translateX(-3px)}.sv-btn.next:hover{transform:translateY(-50%) translateX(3px)}
 .sv-btn.full{top:auto;bottom:12px;right:12px;transform:none;width:40px;height:40px;font-size:1.1rem}
 .sv-count{position:absolute;left:14px;bottom:14px;padding:5px 12px;border-radius:999px;font-size:.8rem;font-weight:800;background:rgba(12,10,29,.6)}
+.sv-stage.doc{aspect-ratio:auto;height:min(78vh,1000px);background:#2a2640}
+.sv-stage.doc .sv-slide{padding:14px;overflow:hidden;min-height:0;display:flex;align-items:center;justify-content:center}
+.sv-stage.doc .sv-slide img{width:auto;height:100%;max-width:100%;object-fit:contain;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.sv-th:has(img[src*="papers/"]){aspect-ratio:3/4;flex-basis:60px}
 .sv-stage:fullscreen{border-radius:0;display:block;aspect-ratio:auto}
 .sv-thumbs{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px;scrollbar-width:thin}
 .sv-th{flex:0 0 96px;aspect-ratio:16/9;border-radius:8px;overflow:hidden;opacity:.45;outline:2px solid transparent;transition:opacity .3s,outline-color .3s,transform .3s var(--ease)}
@@ -571,22 +575,18 @@ const SITE = {
       ]
     },
     {
-      id: "m4", name: "Omar Waleed", short: "Omar W.", role: "Major · Class of 2027", color: "#ffbe5c", photo: "",
-      teaser: "One or two lines that make people want to click: what this member cares about in education.",
-      tags: ["Interest 1", "Interest 2"],
-      quote: "A sentence or quote that sums up why you care about education.",
-      bio: ["Write 3–4 sentences here: where you're from, your major, and what drew you to education.", "Add a second paragraph about the kind of educator or person you hope to become."],
-      enjoy: "What do you genuinely enjoy about education? A moment, a feeling, a kind of student or class that lights you up.",
+      id: "m4", name: "Omar Waleed", short: "Omar W.", role: "Business & Entrepreneurship (intended)", color: "#ffbe5c", photo: "",
+      teaser: "A future entrepreneur who believes education should build character, critical thinking and confidence, not memorization.",
+      tags: ["Entrepreneurship", "Student empowerment", "Beyond memorization"],
+      quote: "Empowering students is not just a teaching strategy, it is the factor that transforms classrooms from boring one-way teaching to two-way vibrant conversations.",
+      bio: ["I intend to declare Business and Entrepreneurship as my major, with an interest in business management, innovation, and developing entrepreneurial ideas.", "This semester I’m taking five courses: Financial Accounting, to understand financial information and business decisions; Statistics, to develop quantitative and analytical skills; Rhetoric, to improve academic writing, research and communication; a Core course, to strengthen critical thinking and presentation skills; and Education, to explore educational challenges and their impact while improving my presentation skills.", "My goal is to develop the knowledge and skills needed for my future career while documenting my academic growth throughout AUC."],
+      enjoy: "Education goes beyond mastering the syllabus or achieving desired grades; it is about building character, thinking critically, and adapting to real-world challenges. The classes I value most are the ones that turn one-way teaching into a two-way conversation, where students are challenged as scholars and feel that they are genuinely learning something new and useful.",
       learned: [
-        { title: "Key idea #1", text: "Something from this course that shifted how you think, in one or two sentences." },
-        { title: "Key idea #2", text: "A reading, discussion or activity that stuck with you, and why." },
-        { title: "Key idea #3", text: "What you noticed during your field observation." }
+        { title: "Education is more than memorizing", text: "Education is the absorption of knowledge, skills and values, and it can come from everyday life, such as hobbies (Murray, 2023). The best education builds a person with a strong identity and independence, not just memorized information." },
+        { title: "Know your students", text: "Teachers can learn their students’ strengths, weaknesses and interests by asking them (Cushman, 2003). When students feel heard, their motivation and performance rise." },
+        { title: "Set the bar high", text: "When students are challenged as scholars rather than learners, they act like one (Delpit, 2012). High expectations lead to more effort, engagement and confidence." }
       ],
-      timeline: [
-        { date: "Week 1", title: "Starting point", text: "What you believed about education before this course." },
-        { date: "Mid-term", title: "Turning point", text: "The moment your thinking changed." },
-        { date: "Now", title: "Where I am", text: "What you are taking with you." }
-      ]
+      timeline: []
     }
   ],
 
@@ -642,6 +642,10 @@ const SITE = {
       image: "slides/rivers/01.jpg", embed: "", link: "",
       slides: ["slides/rivers/01.jpg", "slides/rivers/02.jpg", "slides/rivers/03.jpg", "slides/rivers/04.jpg", "slides/rivers/05.jpg", "slides/rivers/06.jpg", "slides/rivers/07.jpg", "slides/rivers/08.jpg", "slides/rivers/09.jpg", "slides/rivers/10.jpg", "slides/rivers/11.jpg"],
       notes: ["Today we present a classroom activity designed for Sudanese refugee students in Egypt. The title comes from the Nile: the Blue and White Nile meet in Khartoum and then flow on through Egypt. That image is the heart of our activity.", "Since the war began in April 2023, Egypt has become home to around 1.2 million Sudanese, with 834,000 registered with UNHCR. Education has been hit hard: more than 300 Sudanese community schools were closed from June 2024, and a 2025 study found over 5,000 Sudanese children out of school in Cairo alone. Families who do find a place often pay 12,000 to 15,000 pounds for overcrowded schools in apartments. Sources: Fides/UNHCR, Mada Masr, Sudan Tribune.", "We chose interrupted schooling. War forced children to leave school suddenly. In Egypt, closures, residency and registration requirements and high fees keep many out of class for long periods. When they come back, they are often placed by age, not level, so they are behind, in an unfamiliar curriculum and dialect. A Sudanese mother in Cairo said her children had almost forgotten how to read and write. And this happens on top of grief for everything they left behind.", "Interrupted schooling affects four areas. Learning: gaps in basic skills, and being placed by age means repeated failure. Engagement: trauma and stress affect attention and memory, and shame makes students go quiet. Safety: these students live with constant uncertainty, so any sudden change can feel threatening. Belonging: a different curriculum and dialect can make them feel like outsiders.", "Our activity is called Where the Rivers Meet. The Nile is shared by Sudan and Egypt, so it is a symbol both groups of students recognise. Each student makes water drops showing a strength, a skill they can teach, and a hope for the future. The class puts them on one shared river. Importantly, no one is asked about the war or their journey. It runs in 45 minutes and then the river grows for 10 minutes every week.", "The activity has two kinds of goals. Academic: vocabulary, writing at the student's own level, speaking and listening, and basic map skills. These help close gaps from interrupted schooling. Well-being: safety, trust, belonging, and voice. In trauma-informed teaching, students need to feel safe before they can learn.", "Here is how a teacher would run it. Step 1, a predictable start: the same greeting every time and a picture agenda, so nothing is a surprise. Step 2, the teacher shows the map of the Nile and teaches new words with picture cards, which supports students with gaps. Step 3, each student fills in a drop and chooses how: a word, a sentence or a drawing. Step 4, mixed pairs share, and anyone can pass. Step 5, the class builds the river together. Step 6, a calm close with a breathing exercise and a one-word check-out. The teacher watches for anyone who seems upset and follows up privately or refers them to the school counselor.", "These guidelines keep the activity safe. Do offer choices, warn before transitions, praise effort and keep the river growing. Avoid asking about the war or the journey, forcing anyone to share, correcting dialect in public, and sudden changes or loud signals, which can trigger stress responses.", "This activity is built on the six principles of trauma-informed practice. Safety comes from routine and never asking about the past. Trust comes from explaining every step and making sharing optional. Peer support comes from river partners. Collaboration: the river is built together. Voice and choice: students decide how to take part. And cultural respect: the Nile values Sudanese identity instead of erasing it, while connecting it to their new home in Egypt.", "To conclude: for students who have lost so much, safety has to come first, and learning follows. Each drop is a small success, and week by week the river grows, just like their confidence. Thank you, we're happy to take questions.", ""] }
+    ,{ title: "Educational Reflection", type: "Paper", by: ["m4"], course: "EDUC 1099", date: "Sep 14, 2026",
+      desc: "Why education should build character, critical thinking and independence rather than memorization, and how teachers can empower students. Draws on Delpit, Cushman, Murray, Naziev and Morris.",
+      reflection: "", image: "papers/omar-waleed-reflection/2.jpg", embed: "", link: "papers/omar-waleed-reflection.pdf",
+      slides: ["papers/omar-waleed-reflection/1.jpg", "papers/omar-waleed-reflection/2.jpg", "papers/omar-waleed-reflection/3.jpg", "papers/omar-waleed-reflection/4.jpg"], notes: [] }
     /* Individual work goes here, e.g.
     ,{ title: "Field Observation", type: "Presentation", by: ["m2"], course: "Cultural Foundations", date: "Oct 2026",
       desc: "...", reflection: "...", image: "", embed: "", link: "", slides: [], notes: [] } */
@@ -937,12 +941,12 @@ function memberHTML(m) {
     </div>
   </section>
 
-  <section class="section">
+  ${m.timeline && m.timeline.length ? `<section class="section">
     <div class="wrap">
       <div class="sec-head reveal"><span class="eyebrow">My journey</span><h2 class="sec-title">How my thinking <span class="grad">changed</span></h2></div>
       ${timelineHTML(m.timeline, m.color)}
     </div>
-  </section>
+  </section>` : ''}
 
   <section class="section" id="work">
     <div class="wrap">
@@ -1204,7 +1208,7 @@ function openLB(i) {
     ${w.slides && w.slides.length ? media : `<div class="lb-media">${media}</div>`}
     <p>${esc(w.desc)}</p>
     ${w.reflection ? `<h4>Reflection</h4><p>${esc(w.reflection)}</p>` : ''}
-    ${w.link ? `<p style="margin-top:22px"><a class="btn primary" href="${esc(w.link)}" target="_blank" rel="noopener">Open original <span class="arr">↗</span></a></p>` : ''}`;
+    ${w.link ? `<p style="margin-top:22px"><a class="btn primary" href="${esc(w.link)}" target="_blank" rel="noopener">${/\.pdf$/i.test(w.link) ? 'Download PDF' : 'Open original'} <span class="arr">↗</span></a></p>` : ''}`;
   if (w.slides && w.slides.length) initSlider(w);
   lb.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -1212,7 +1216,7 @@ function openLB(i) {
 }
 function slideViewer(w) {
   return `<div class="sv" tabindex="0">
-    <div class="lb-media sv-stage">
+    <div class="lb-media sv-stage ${w.type === 'Paper' ? 'doc' : ''}">
       <div class="sv-track">${w.slides.map((src, k) => `<div class="sv-slide"><img src="${esc(src)}" alt="${esc(w.title)}, slide ${k + 1}" draggable="false"></div>`).join('')}</div>
       <button class="sv-btn prev" aria-label="Previous slide">‹</button>
       <button class="sv-btn next" aria-label="Next slide">›</button>
