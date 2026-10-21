@@ -363,7 +363,7 @@ body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
 .sv-stage.doc{aspect-ratio:auto;height:min(78vh,1000px);background:#2a2640}
 .sv-stage.doc .sv-slide{padding:14px;overflow:hidden;min-height:0;display:flex;align-items:center;justify-content:center}
 .sv-stage.doc .sv-slide img{width:auto;height:100%;max-width:100%;object-fit:contain;box-shadow:0 10px 30px rgba(0,0,0,.4)}
-.sv-th:has(img[src*="papers/"]){aspect-ratio:3/4;flex-basis:60px}
+.sv-th:has(img[src*="papers/"]) img{object-fit:contain;background:#fff}
 .sv-stage:fullscreen{border-radius:0;display:block;aspect-ratio:auto}
 .sv-thumbs{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px;scrollbar-width:thin}
 .sv-th{flex:0 0 96px;aspect-ratio:16/9;border-radius:8px;overflow:hidden;opacity:.45;outline:2px solid transparent;transition:opacity .3s,outline-color .3s,transform .3s var(--ease)}
@@ -646,6 +646,10 @@ const SITE = {
       desc: "Why education should build character, critical thinking and independence rather than memorization, and how teachers can empower students. Draws on Delpit, Cushman, Murray, Naziev and Morris.",
       reflection: "", image: "papers/omar-waleed-reflection/2.jpg", embed: "", link: "papers/omar-waleed-reflection.pdf",
       slides: ["papers/omar-waleed-reflection/1.jpg", "papers/omar-waleed-reflection/2.jpg", "papers/omar-waleed-reflection/3.jpg", "papers/omar-waleed-reflection/4.jpg"], notes: [] }
+    ,{ title: "Educational Reflection", type: "Paper", by: ["m3"], course: "EDUC 1099", date: "",
+      desc: "How Cushman's Fires in the Bathroom and Delpit's “Multiplication is for white people” changed how he sees the teacher–student relationship: students need to feel heard and respected, and also to be challenged.",
+      reflection: "", image: "papers/omar-mamdouh-reflection/1.jpg", embed: "", link: "papers/omar-mamdouh-reflection.pdf",
+      slides: ["papers/omar-mamdouh-reflection/1.jpg", "papers/omar-mamdouh-reflection/2.jpg", "papers/omar-mamdouh-reflection/3.jpg"], notes: [] }
     /* Individual work goes here, e.g.
     ,{ title: "Field Observation", type: "Presentation", by: ["m2"], course: "Cultural Foundations", date: "Oct 2026",
       desc: "...", reflection: "...", image: "", embed: "", link: "", slides: [], notes: [] } */
