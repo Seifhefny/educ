@@ -348,6 +348,15 @@ body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
 .lb h4{font-size:1rem;letter-spacing:.12em;text-transform:uppercase;color:var(--t);margin:18px 0 8px}
 .lb p{color:var(--muted)}
 
+/* ---------- pets ---------- */
+.pets{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,320px));gap:22px}
+.pet{padding:10px;margin:0;overflow:hidden;transition:transform .5s var(--ease),box-shadow .5s}
+.pet:hover{transform:translateY(-8px) rotate(-1deg);box-shadow:0 26px 60px rgba(0,0,0,.45)}
+.pet:nth-child(even):hover{transform:translateY(-8px) rotate(1deg)}
+.pet video,.pet img{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:16px;background:#000;display:block}
+.pet figcaption{padding:12px 6px 4px;color:var(--muted);font-size:.92rem}
+@media (max-width:560px){.pets{grid-template-columns:1fr 1fr;gap:12px}.pet{padding:6px}}
+
 /* ---------- slide viewer ---------- */
 .sv-stage{position:relative;touch-action:pan-y;user-select:none;margin-bottom:12px;background:#000}
 .sv-track{display:flex;height:100%;transition:transform .55s var(--ease)}
@@ -557,7 +566,11 @@ const SITE = {
     },
     {
       id: "m3", name: "Omar Mamdouh", short: "Omar M.", role: "Electronics & Communications Engineering · Class of 2029", color: "#3ee6c8", photo: "",
-      teaser: "A student who believes good teaching starts with listening, building trust and challenging every student to reach their potential.", tags: ["Student voice", "Classroom belonging", "Learning through trust"], quote: "", bio: ["I’m Omar Mamdouh, a sophomore at the American University in Cairo, majoring in Electronics and Communications Engineering. I was born in Saudi Arabia and raised in Egypt, which has given me a connection to both countries and helped shape the way I see the world.", "I’ve always been a curious person who likes to understand how things work and explore new ideas. I believe that a lot of who I am today comes from the people around me, especially my friends and family. They’ve influenced the way I think, the decisions I make, and the goals I set for myself.", "I’m also someone who dreams big and doesn’t like putting limits on what I can achieve. One of my biggest ambitions is to become the richest person to ever live. I know that’s an extremely ambitious goal, but I believe having big dreams gives me something to work toward."], enjoy: ["What I enjoy most about education is being able to take something I’ve learned and actually apply it in real life. For me, understanding a concept is much more interesting when I can see how it works outside of a textbook. That’s why I prefer interactive classes where students can participate, ask questions, and get involved instead of just sitting and listening to a lecture.", "I also believe that education is one of the most important factors in a country’s success. A strong education system gives people the knowledge and skills they need to develop new ideas, solve problems, and contribute to society. Without good education, it’s difficult for a country to truly progress.", "I think education should focus more on practical learning rather than just memorizing information for exams. Students should have more opportunities to experiment, think independently, and understand how what they’re studying connects to the real world."], learned: [], timeline: []
+      teaser: "A student who believes good teaching starts with listening, building trust and challenging every student to reach their potential.", tags: ["Student voice", "Classroom belonging", "Learning through trust"], quote: "", bio: ["I’m Omar Mamdouh, a sophomore at the American University in Cairo, majoring in Electronics and Communications Engineering. I was born in Saudi Arabia and raised in Egypt, which has given me a connection to both countries and helped shape the way I see the world.", "I’ve always been a curious person who likes to understand how things work and explore new ideas. I believe that a lot of who I am today comes from the people around me, especially my friends and family. They’ve influenced the way I think, the decisions I make, and the goals I set for myself.", "I’m also someone who dreams big and doesn’t like putting limits on what I can achieve. One of my biggest ambitions is to become the richest person to ever live. I know that’s an extremely ambitious goal, but I believe having big dreams gives me something to work toward."], enjoy: ["What I enjoy most about education is being able to take something I’ve learned and actually apply it in real life. For me, understanding a concept is much more interesting when I can see how it works outside of a textbook. That’s why I prefer interactive classes where students can participate, ask questions, and get involved instead of just sitting and listening to a lecture.", "I also believe that education is one of the most important factors in a country’s success. A strong education system gives people the knowledge and skills they need to develop new ideas, solve problems, and contribute to society. Without good education, it’s difficult for a country to truly progress.", "I think education should focus more on practical learning rather than just memorizing information for exams. Students should have more opportunities to experiment, think independently, and understand how what they’re studying connects to the real world."], learned: [], timeline: [],
+      pets: [
+        { type: "video", src: "media/omar-mamdouh/pet-video.mp4", poster: "media/omar-mamdouh/pet-video-poster.jpg" },
+        { type: "image", src: "media/omar-mamdouh/pet-photo.jpg" }
+      ]
     },
     {
       id: "m4", name: "Omar Waleed", short: "Omar W.", role: "Business & Entrepreneurship (intended)", color: "#ffbe5c", photo: "",
@@ -922,6 +935,15 @@ function memberHTML(m) {
     <div class="wrap ${m.bio.length && m.enjoy ? 'two-col' : ''}">
       ${m.bio.length ? `<div class="prose-card glass reveal from-left"><span class="eyebrow">About me</span><h3 style="margin-top:12px">Who I am</h3>${m.bio.map(p => `<p>${esc(p)}</p>`).join('')}</div>` : ''}
       ${m.enjoy ? `<div class="prose-card glass reveal from-right" style="background:linear-gradient(150deg,${m.color}33,rgba(255,255,255,.04))"><span class="eyebrow">Why education</span><h3 style="margin-top:12px">What I enjoy about education</h3>${[].concat(m.enjoy).map(p => `<p>${esc(p)}</p>`).join('')}</div>` : ''}
+    </div>
+  </section>` : ''}
+
+  ${m.pets && m.pets.length ? `<section class="section" style="--mc:${m.color};padding-top:20px">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="eyebrow">Off the clock</span><h2 class="sec-title">My <span class="grad">pets</span></h2></div>
+      <div class="pets">${m.pets.map((x, i) => `<figure class="pet glass reveal zoom" style="--d:${i * .12}s">${x.type === 'video'
+        ? `<video src="${esc(x.src)}" ${x.poster ? `poster="${esc(x.poster)}"` : ''} autoplay muted loop playsinline controls preload="metadata"></video>`
+        : `<img src="${esc(x.src)}" alt="${esc(m.name)}'s pet" loading="lazy">`}${x.caption ? `<figcaption>${esc(x.caption)}</figcaption>` : ''}</figure>`).join('')}</div>
     </div>
   </section>` : ''}
 
